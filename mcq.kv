@@ -1,0 +1,52 @@
+WindowManager:
+    OpenFiles:
+    Choices:
+    Recap:
+
+<OpenFiles>:
+    name: "open"
+    BoxLayout:
+        orientation: "vertical"
+        FileChooserIconView:
+            size_hint: 1, .8
+            id: fileChooser
+            # rootpath: "/Internal storage/Download/"
+            filters: ["*.pdf"]
+            on_selection: root.file_fire_select(fileChooser.selection)
+
+<Recap>:
+    name: "recap"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "You did it :)"
+        AnchorLayout:
+            anchor_x: "center"
+            Button:
+                size_hint: .2, .1
+                text: "Show Results"
+                on_release: root.getResult()
+        Label:
+            text: root.result
+
+<Choices>:
+    name: "choices"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        Label:
+            text: root.my_clock
+        Label:
+            text: "Question " + root.number
+        Button:
+            text: "A"
+            on_release: root.choose("A")
+        Button:
+            text: "B"
+            on_release: root.choose("B")
+        Button:
+            text: "C"
+            on_release: root.choose("C")
+        Button:
+            text: "D"
+            on_release: root.choose("D")
